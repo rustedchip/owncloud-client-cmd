@@ -16,11 +16,11 @@ jobs:
     - name: build-the-docker-image
       run: |
         TIMESTAMP=$(date +%s)
+        echo "TIMESTAMP=$TIMESTAMP" >> $GITHUB_ENV  # Save timestamp to environment variable
         docker build -t rustedchip/owncloud-client-cmd:latest -t rustedchip/owncloud-client-cmd:$TIMESTAMP .
 
     - name: push-to-docker-hub
       run: |
-        TIMESTAMP=$(date +%s)
         docker push rustedchip/owncloud-client-cmd:latest
         docker push rustedchip/owncloud-client-cmd:$TIMESTAMP
 
