@@ -15,13 +15,14 @@ jobs:
 
     - name: build-the-docker-image
       run: |
-        docker build -t rustedchip/owncloud-client-cmd:latest .
-        docker tag rustedchip/owncloud-client-cmd:latest rustedchip/owncloud-client-cmd:$(date +%s)
+        TIMESTAMP=$(date +%s)
+        docker build -t rustedchip/owncloud-client-cmd:latest -t rustedchip/owncloud-client-cmd:$TIMESTAMP .
 
     - name: push-to-docker-hub
       run: |
+        TIMESTAMP=$(date +%s)
         docker push rustedchip/owncloud-client-cmd:latest
-        docker push rustedchip/owncloud-client-cmd:$(date +%s)
+        docker push rustedchip/owncloud-client-cmd:$TIMESTAMP
 
     - name: log-out-from-docker-hub
       run: docker logout
