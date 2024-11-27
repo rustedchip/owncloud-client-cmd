@@ -1,1 +1,1 @@
-`docker push rustedchip/owncloud-client-cmd`
+`docker pull rustedchip/owncloud-client-cmd`
