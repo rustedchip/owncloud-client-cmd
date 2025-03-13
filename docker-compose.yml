@@ -8,13 +8,12 @@ services:
       - OWNCLOUD_URL=${OWNCLOUD_URL}   
       - OWNCLOUD_USERNAME=${OWNCLOUD_USERNAME}
       - OWNCLOUD_PASSWORD=${OWNCLOUD_PASSWORD}
-      - LOCAL_SYNC_DIR=${LOCAL_SYNC_DIR}
       - REMOTE_SYNC_DIR=${REMOTE_SYNC_DIR}
       - SYNC_INTERVAL=${SYNC_INTERVAL}
       - OWNCLOUD_EXCLUDE=${OWNCLOUD_EXCLUDE}
       - LANG=C.UTF-8
       - LC_ALL=C.UTF-8
     volumes:
-      - /str/sda/local:${LOCAL_SYNC_DIR}
+      - /str/sda/local:/sync
     network_mode: host
     restart: unless-stopped
