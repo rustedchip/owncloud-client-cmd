@@ -1,6 +1,6 @@
 services:
   owncloud_sync:
-    build: .
+    image: rustedchip/owncloud-client-cmd
     container_name: owncloud-client-cmd
     env_file:
       - .env 
