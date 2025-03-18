@@ -26,10 +26,10 @@ sync_files() {
     echo "running-owncloud-sync"
     if [ -f "$EXCLUDE_FILE" ]; then
         echo "using-exclude-file :: $EXCLUDE_FILE"
-        owncloudcmd --non-interactive --user "$OWNCLOUD_USERNAME" --password "$OWNCLOUD_PASSWORD" --exclude "$EXCLUDE_FILE" /sync "$OWNCLOUD_URL$REMOTE_SYNC_DIR"
+        owncloudcmd --non-interactive --user "$OWNCLOUD_USERNAME" --password "$OWNCLOUD_PASSWORD" --exclude "$EXCLUDE_FILE" /sync "$OWNCLOUD_URL" "$REMOTE_SYNC_DIR"
     else
         echo "exclude-file-not-found :: skipping-exclude-option"
-        owncloudcmd --non-interactive --user "$OWNCLOUD_USERNAME" --password "$OWNCLOUD_PASSWORD" /sync "$OWNCLOUD_URL$REMOTE_SYNC_DIR"
+        owncloudcmd --non-interactive --user "$OWNCLOUD_USERNAME" --password "$OWNCLOUD_PASSWORD" /sync "$OWNCLOUD_URL" "$REMOTE_SYNC_DIR"
     fi
 
     echo "[ sync-has-been-completed ]"
